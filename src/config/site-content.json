@@ -40,10 +40,24 @@
 	"currentBackgroundImageId": "",
 	"socialButtons": [
 		{
-			"id": "github",
-			"type": "github",
+			"id": "email",
+			"type": "email",
+			"value": "zhaqiang1001@163.com",
+			"label": "",
+			"order": 1
+		},
+		{
+			"id": "button-1766412044704",
+			"type": "wechat",
 			"value": "",
-			"label": "Github",
+			"label": "",
+			"order": 2
+		},
+		{
+			"id": "button-1766412045554",
+			"type": "qq",
+			"value": "",
+			"label": "",
 			"order": 3
 		},
 		{
@@ -51,14 +65,14 @@
 			"type": "juejin",
 			"value": "",
 			"label": "稀土掘金",
-			"order": 2
+			"order": 4
 		},
 		{
-			"id": "email",
-			"type": "email",
-			"value": "zhaqiang1001@163.com",
-			"label": "",
-			"order": 1
+			"id": "github",
+			"type": "github",
+			"value": "",
+			"label": "Github",
+			"order": 5
 		}
 	],
 	"clockShowSeconds": true,
