@@ -66,13 +66,6 @@
 			"value": "",
 			"label": "",
 			"order": 4
-		},
-		{
-			"id": "juejin",
-			"type": "juejin",
-			"value": "",
-			"label": "稀土掘金",
-			"order": 5
 		}
 	],
 	"clockShowSeconds": true,
