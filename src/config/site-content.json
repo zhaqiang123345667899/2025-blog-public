@@ -1,11 +1,11 @@
 {
 	"meta": {
-		"title": "U-LINK",
+		"title": "暮日个人导航页",
 		"description": "暮日的个人导航页，记录前端开发、探索、笔记。前端 UI 更新代码仓库。",
 		"username": "ylzha"
 	},
 	"theme": {
-		"colorBrand": "#de4331",
+		"colorBrand": "#4D702B",
 		"colorPrimary": "#4E3F42",
 		"colorSecondary": "#7b888e",
 		"colorBrandSecondary": "#FCC841",
@@ -15,12 +15,10 @@
 		"colorArticle": "#ffffffcc"
 	},
 	"backgroundColors": [
-		"#FCC841",
-		"#DFEFFC",
-		"#DEDE92",
-		"#DE4331",
-		"#FE9750",
-		"#FCC841"
+		"#9128E1",
+		"#90f290",
+		"#A94F0C",
+		"#74ce3f"
 	],
 	"artImages": [
 		{
@@ -72,7 +70,7 @@
 	"hatFlipped": false,
 	"enableChristmas": true,
 	"beian": {
-		"text": "",
-		"link": ""
+		"text": "鄂ICP备2025165912号-1",
+		"link": "https://beian.miit.gov.cn/"
 	}
 }
