@@ -63,9 +63,16 @@
 		{
 			"id": "button-1766412045554",
 			"type": "qq",
-			"value": "",
+			"value": "7894044",
 			"label": "",
 			"order": 4
+		},
+		{
+			"id": "button-1766414377298",
+			"type": "link",
+			"value": "http://4888.fnos.app",
+			"label": "lucky",
+			"order": 5
 		}
 	],
 	"clockShowSeconds": true,

@@ -33,28 +33,28 @@
 		"enabled": true
 	},
 	"musicCard": {
-		"width": 293,
-		"height": 66,
+		"width": 286,
+		"height": 79,
 		"offset": 120,
 		"order": 6,
-		"offsetX": 75,
-		"offsetY": 227,
+		"offsetX": 88,
+		"offsetY": 218,
 		"enabled": true
 	},
 	"socialButtons": {
 		"width": 315,
 		"height": 48,
 		"order": 6,
-		"offsetX": -88,
-		"offsetY": 138,
+		"offsetX": -103,
+		"offsetY": 137,
 		"enabled": true
 	},
 	"shareCard": {
-		"width": 397,
-		"height": 138,
+		"width": 413,
+		"height": 110,
 		"order": 7,
-		"offsetX": -436,
-		"offsetY": 203,
+		"offsetX": -422,
+		"offsetY": 200,
 		"enabled": true
 	},
 	"articleCard": {
@@ -98,11 +98,11 @@
 		"enabled": false
 	},
 	"beianCard": {
-		"width": 417,
-		"height": 68,
+		"width": 377,
+		"height": 53,
 		"order": 11,
-		"offsetX": -166,
-		"offsetY": 356,
+		"offsetX": -167,
+		"offsetY": 335,
 		"enabled": true
 	}
 }
