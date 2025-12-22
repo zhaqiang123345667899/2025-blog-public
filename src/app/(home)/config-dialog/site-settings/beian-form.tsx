@@ -10,20 +10,20 @@ interface BeianFormProps {
 export function BeianForm({ formData, setFormData }: BeianFormProps) {
 	return (
 		<div className='space-y-2'>
-			<label className='mb-2 block text-sm font-medium'>备案信息</label>
+			<label className='mb-2 block text-sm font-medium'>Copyright © U-LINK by ylzha</label>
 			<div className='grid grid-cols-2 gap-2'>
 				<div>
-					<label className='mb-1 block text-xs text-gray-600'>备案号</label>
+					<label className='mb-1 block text-xs text-gray-600'>鄂ICP备2025165912号-1</label>
 					<input
 						type='text'
 						value={formData.beian?.text || ''}
 						onChange={e => setFormData({ ...formData, beian: { ...(formData.beian || { text: '', link: '' }), text: e.target.value } })}
-						placeholder='例如：京ICP备12345678号'
+						placeholder='鄂ICP备2025165912号-1'
 						className='bg-secondary/10 w-full rounded-lg border px-4 py-2 text-sm'
 					/>
 				</div>
 				<div>
-					<label className='mb-1 block text-xs text-gray-600'>备案链接（可选）</label>
+					<label className='mb-1 block text-xs text-gray-600'>https://beian.miit.gov.cn/</label>
 					<input
 						type='url'
 						value={formData.beian?.link || ''}
