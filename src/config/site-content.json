@@ -75,7 +75,7 @@
 			"order": 5
 		}
 	],
-	"clockShowSeconds": true,
+	"clockShowSeconds": false,
 	"summaryInContent": true,
 	"isCachePem": true,
 	"hideEditButton": false,
