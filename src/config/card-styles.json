@@ -37,16 +37,16 @@
 		"height": 79,
 		"offset": 120,
 		"order": 6,
-		"offsetX": -118,
-		"offsetY": 222,
+		"offsetX": -115,
+		"offsetY": 211,
 		"enabled": true
 	},
 	"socialButtons": {
 		"width": 315,
 		"height": 48,
 		"order": 6,
-		"offsetX": -103,
-		"offsetY": 137,
+		"offsetX": -89,
+		"offsetY": 134,
 		"enabled": true
 	},
 	"shareCard": {
@@ -101,8 +101,8 @@
 		"width": 377,
 		"height": 53,
 		"order": 11,
-		"offsetX": -167,
-		"offsetY": 335,
+		"offsetX": -160,
+		"offsetY": 327,
 		"enabled": true
 	}
 }
