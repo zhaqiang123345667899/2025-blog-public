@@ -21,7 +21,7 @@
 	},
 	{
 		"name": "360",
-		"logo": "blob:https://www.221107.xyz/13560ca4-6a28-40aa-9138-fc8bcfaa2325",
+		"logo": "https://p2.ssl.qhimg.com/d/inn/b886349a3672/LOGO_128x128.png",
 		"url": "http://youqian.360.cn/score.html#score",
 		"description": "360有钱联盟",
 		"tags": [
@@ -33,7 +33,7 @@
 		"name": "天翼搜",
 		"logo": "https://www.tianyiso.com/favicon.ico",
 		"url": "https://www.tianyiso.com/",
-		"description": "天翼搜",
+		"description": "天翼云盘搜索",
 		"tags": [
 			"常用"
 		],
@@ -43,7 +43,7 @@
 		"name": "观影",
 		"logo": "https://www.gying.si/favicon.ico",
 		"url": "https://www.gying.si/",
-		"description": "观影",
+		"description": "电影在线和下载",
 		"tags": [
 			"常用"
 		],
