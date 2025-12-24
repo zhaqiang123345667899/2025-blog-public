@@ -1,45 +1,20 @@
-unraid rclone使用 linux通用
-用AList挂载webdav，再配置rclone config文件
-打开unraid命令行，输入rclone config
-![](/blogs/ylzha/1a3bc7c4dcb13d71.jpg)
-选择n，新建一个remote，输入name
-![](/blogs/ylzha/737c65946338e48a.jpg)
-Storage选择45!即webdav 输入本地地址或者自己的域名，地址要写全，例如http://192.168.8.6:5244/dav/aliyun，
-vendor选择5.other.然后填写用户名，如admin，密码password同理，bearer_token不用输入直接回车
-![](/blogs/ylzha/4d48b2fc8e00f4f1.jpg)
-vanced config编辑高级配置也直接回车默认，全部配置完毕之后再确认一遍，没有问题选择y保存，
-之后选择q退出config配置”
-![](/blogs/ylzha/d5f7366b4f107e04.jpg)
-检查是否配置是否正确
-在终端输入rclone lsd backup[刚才config配置的name]
-出现了对应目录文件则代表配置正确
-样例
-1,复制本地 /mnt/user/webdav 到远程目录/home 下，已经存在的文件会被跳过
-rclone copy /mnt/user/webdav remote:/home
-2,复制完成后删除
-rclone move /mnt/user/webdav remote:/home
-3,同步使远程 /home 和本地 /mnt/user/webdav 保持一致，不会修改本地文件
-rclone sync /mnt/user/webdav remote:/home
-
-需要注意的是，同步命令有两个：
-sync 是单向同步，只会修改目标，不会修改源目录。
-假如你在本地删除了其中的文件，那么远程对应的文件也会被删除（如果不想这样，可以用 copy 命令）
-假如是远程文件被删除，只要本地文件还在，rclone sync 会再次把此文件推到远程。
+永久域名eu.org申请
+打开注册地址：https://nic.eu.org/，然后点击【here】
+![](/blogs/ylzha/27653a09946de89b.jpg)
+然后在出现的这个页面点击【Register】按钮注册
+![](/blogs/ylzha/1acc4cbf705999f1.jpg)
+然后就来到了注册页面。该注册页面需要填写的信息非常简单，除了【E-mail】和密码项需要填写自己真实的.其它的直接使用一个英国地址生成器网站：https://www.meiguodizhi.com/uk-address 就可以搞定
+![](/blogs/ylzha/0786b4a4c8041ef2.jpg)
+然后你填写的邮箱就会收到一封邮件，如果你超过30秒还没收到，就去你邮箱里面的垃圾箱找找看。 我们点击邮件它给出的链接进行激活验证。邮件里nic-hdl后面就是你的登录账号名。
+![](/blogs/ylzha/3e7d7ac4c37c816f.jpg)
+进去后，点击“New Domain”（创建）按钮
+![](/blogs/ylzha/83a2202b144db57f.jpg)
+然后在该页面输入你想注册的域名，数字或者字母都可以。需要注意的是：后面必须加上【.eu.org】后缀。比如“ylzha.eu.org”.然后重新打开浏览器另外一个标签页，打开腾讯DNSPOD：https://www.dnspod.cn/，登录自己的账号（没有就直接注册一个，可以微信扫码快速注册，非常简单），然后点击右上角的“管理控制台”。点击“我的域名”然后点击添加域名，填入刚刚申请的域名。
+![](/blogs/ylzha/b2f8b0c8477f0407.jpg)
+解析状态会显示DNS不正确。点击域名进去
+![](/blogs/ylzha/44dbd9de09d04ddd.jpg)
+然后回到我们刚刚创建域名的网站，还是同一页面的下方，也就是上图的位置，首选选择“server names”，然后在Name1和Name2里面分别填入我们刚刚在腾讯DNSPOD复制的两个网址（其实这个是为我们申请到的域名托管到cloudflare做准备）。完成之后点击“Submit”按钮。
+![](/blogs/ylzha/8d4053162902d8c2.jpg)
+当出现上图中”No error…Done”，就说明成功了~然后就是等待审核时间。审核快点的可能不到一天，慢点的需要一个月也有可能。当我们到腾讯云里看见解析状态显示无记录，或者正常，也就是域名申请成功了。这个时候你就可以用腾讯云或者cloudflare解析你到你网络的公网IP就可以通过域名访问你的服务器了。
  
-bisync 才是直觉上的双向同步。 暂时没用到。详细可以查看官方文档。
-
-自动同步,通过 User Scripts 这个插件可实现的定时任务。
-添加定时任务：
-cd /boot/config/plugins/user.scripts/scripts
-创建一个目录（直接 copy 其他任务更方便），新建一个文件 script，注意没有后缀名，写入以下内容：
-实例目录改自己的
-!/bin/bash rclone sync /mnt/user/webdav/Z aliyun:/home
-
-打包boot文件
-tar -czvf /mnt/user/webdav/boot/boot.tar.gz /boot
-复制到云盘
-rclone copy /mnt/user/webdav/boot/boot.tar.gz aliyun:tools
-合并
-tar -czvf /mnt/user/data/backup/boot/boot.tar.gz /boot && rclone copy /mnt/user/webdav/boot/boot.tar.gz aliyun:tools
-
 完毕
