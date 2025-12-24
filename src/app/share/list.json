@@ -5,7 +5,57 @@
 		"url": "https://tpass.hubei.chinatax.gov.cn:8443/#/login?redirect_uri=https%3A%2F%2Fetax.hubei.chinatax.gov.cn%3A8443%2Fmhzx%2Fapi%2Fmh%2Ftpass%2Fcode&client_id=b6edq5qqc5cb4c3288q6aq6fab5qc3b4&response_type=code&state=b58a517dcbd74a8098db3424afdb98de",
 		"description": "湖北电子税务局",
 		"tags": [
-			"湖北电子税务局"
+			"常用"
+		],
+		"stars": 3
+	},
+	{
+		"name": "政府定点采购网",
+		"logo": "https://nasicon.top/icon/Busybox--BusyBox--busybox.net.png",
+		"url": "https://wssc.hubeigp.gov.cn/upgrade/home?site_id=%20421182",
+		"description": "政府定点采购网",
+		"tags": [
+			"常用"
+		],
+		"stars": 3
+	},
+	{
+		"name": "360",
+		"logo": "blob:https://www.221107.xyz/13560ca4-6a28-40aa-9138-fc8bcfaa2325",
+		"url": "http://youqian.360.cn/score.html#score",
+		"description": "360有钱联盟",
+		"tags": [
+			"常用"
+		],
+		"stars": 3
+	},
+	{
+		"name": "天翼搜",
+		"logo": "https://www.tianyiso.com/favicon.ico",
+		"url": "https://www.tianyiso.com/",
+		"description": "天翼搜",
+		"tags": [
+			"常用"
+		],
+		"stars": 3
+	},
+	{
+		"name": "观影",
+		"logo": "https://www.gying.si/favicon.ico",
+		"url": "https://www.gying.si/",
+		"description": "观影",
+		"tags": [
+			"常用"
+		],
+		"stars": 3
+	},
+	{
+		"name": "友联邮箱",
+		"logo": "https://nasicon.top/icon/QqMail--QQ%E9%82%AE%E7%AE%B1--qq.com.png",
+		"url": "https://ylzha.eu.org/#/sys-setting",
+		"description": "cf自建邮箱",
+		"tags": [
+			"常用"
 		],
 		"stars": 3
 	}
