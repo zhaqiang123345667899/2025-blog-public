@@ -1,31 +1,45 @@
-docker compose安装mariadb
-```
-version: '3.8'      # 使用 Docker Compose 文件的最新版本
-  services:           # 定义服务列表
-     mariadb:            # 定义名为 mariadb 的服务
-     container_name: mariadb         # 为容器指定一个名称
-     image: mariadb:latest         # 使用 MariaDB 的最新版镜像
-     ports:
-         - "3306:3306"             # 将容器的 3306 端口映射到宿主机的 3306 端口，用于数据库连接
-     restart: always         # 总是重启容器，确保数据库服务的高可用性
-     environment:           # 设置环境变量，用于配置数据库
-         MYSQL_ROOT_PASSWORD: 1111          # 设置 root 用户的密码
-         MYSQL_DATABASE: USER_DB_NAME        # 创建一个初始数据库
-         MYSQL_USER: abc           # 创建一个名为 ABC 的普通用户
-         MYSQL_PASSWORD: 1111                 # 设置普通用户的密码
-    volumes:                 # 定义卷映射，用于数据持久化
-        - /vol1/@appshare/mariadb:/var/lib/mysql    # 将宿主机的目录挂载到容器的数据目录
-    network_mode: bridge
-```
-打控制台“Console“
-输入“mysql -u root -p”进入数据库
-输入“MYSQL_ROOT_PASSWORD”数据库密码
-输入密码是不显示的，输完回车即可
-![](/blogs/ylzha/6cad5f196cb373eb.png)
-查看数据库“show databases;”注意冒号，不要忘记加“;”，可以按“Ctrl + c”结束输入
-![](/blogs/ylzha/1131b7846331e87a.png)
-创建数据库“create database 数据库名;”
+unraid rclone使用 linux通用
+用AList挂载webdav，再配置rclone config文件
+打开unraid命令行，输入rclone config
+![](/blogs/ylzha/1a3bc7c4dcb13d71.jpg)
+选择n，新建一个remote，输入name
+![](/blogs/ylzha/737c65946338e48a.jpg)
+Storage选择45!即webdav 输入本地地址或者自己的域名，地址要写全，例如http://192.168.8.6:5244/dav/aliyun，
+vendor选择5.other.然后填写用户名，如admin，密码password同理，bearer_token不用输入直接回车
+![](/blogs/ylzha/4d48b2fc8e00f4f1.jpg)
+vanced config编辑高级配置也直接回车默认，全部配置完毕之后再确认一遍，没有问题选择y保存，
+之后选择q退出config配置”
+![](/blogs/ylzha/d5f7366b4f107e04.jpg)
+检查是否配置是否正确
+在终端输入rclone lsd backup[刚才config配置的name]
+出现了对应目录文件则代表配置正确
+样例
+1,复制本地 /mnt/user/webdav 到远程目录/home 下，已经存在的文件会被跳过
+rclone copy /mnt/user/webdav remote:/home
+2,复制完成后删除
+rclone move /mnt/user/webdav remote:/home
+3,同步使远程 /home 和本地 /mnt/user/webdav 保持一致，不会修改本地文件
+rclone sync /mnt/user/webdav remote:/home
 
-删除数据库“drop database 数据库名;”
+需要注意的是，同步命令有两个：
+sync 是单向同步，只会修改目标，不会修改源目录。
+假如你在本地删除了其中的文件，那么远程对应的文件也会被删除（如果不想这样，可以用 copy 命令）
+假如是远程文件被删除，只要本地文件还在，rclone sync 会再次把此文件推到远程。
+ 
+bisync 才是直觉上的双向同步。 暂时没用到。详细可以查看官方文档。
+
+自动同步,通过 User Scripts 这个插件可实现的定时任务。
+添加定时任务：
+cd /boot/config/plugins/user.scripts/scripts
+创建一个目录（直接 copy 其他任务更方便），新建一个文件 script，注意没有后缀名，写入以下内容：
+实例目录改自己的
+!/bin/bash rclone sync /mnt/user/webdav/Z aliyun:/home
+
+打包boot文件
+tar -czvf /mnt/user/webdav/boot/boot.tar.gz /boot
+复制到云盘
+rclone copy /mnt/user/webdav/boot/boot.tar.gz aliyun:tools
+合并
+tar -czvf /mnt/user/data/backup/boot/boot.tar.gz /boot && rclone copy /mnt/user/webdav/boot/boot.tar.gz aliyun:tools
 
 完毕
