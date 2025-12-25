@@ -33,7 +33,6 @@ const nextConfig: NextConfig = {
 
 		return config
 	},
-
 	async redirects() {
 		return [
 			{
@@ -49,5 +48,9 @@ const nextConfig: NextConfig = {
 		]
 	}
 }
-
+ // ▼▼▼ 新增配置：关闭图片优化，修复 EO 500 报错 ▼▼▼
+    images: {
+        unoptimized: true
+    },
+    // ▲▲▲ 新增结束 ▲▲▲
 export default nextConfig
