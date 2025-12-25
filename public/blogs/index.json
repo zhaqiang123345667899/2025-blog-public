@@ -1,5 +1,15 @@
 [
   {
+    "slug": "09",
+    "title": "Linux Debian系统的常用命令",
+    "tags": [],
+    "date": "2024-06-18T22:04",
+    "summary": "",
+    "cover": "/blogs/09/b01101f37079aeec.webp",
+    "hidden": false,
+    "category": ""
+  },
+  {
     "slug": "08",
     "title": "Docker及Docker compose常用命令",
     "tags": [],
