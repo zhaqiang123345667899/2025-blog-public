@@ -23,6 +23,8 @@ import { cn } from '@/lib/utils'
 import { useSize } from '@/hooks/use-size'
 import { useConfigStore } from '@/app/(home)/stores/config-store'
 import { HomeDraggableLayer } from '@/app/(home)/home-draggable-layer'
+// 新增：导入备案框组件
+import BeianCard from './beian-card'
 
 const list = [
 	{
@@ -46,6 +48,7 @@ const list = [
 ]
 
 const extraSize = 8
+const BEIAN_HEIGHT = 28 // 备案框高度
 
 export default function NavCard() {
 	const pathname = usePathname()
@@ -73,12 +76,22 @@ export default function NavCard() {
 	}, [pathname])
 	if (maxSM) form = 'icons'
 
+	// 新增：计算包含备案框的总高度
 	const itemHeight = form === 'full' ? 52 : 28
+	const totalHeight = useMemo(() => {
+		if (form === 'full') {
+			return styles.height + BEIAN_HEIGHT + 16 // 16px 间距
+		}
+		if (form === 'icons') {
+			return 64 + BEIAN_HEIGHT + 16
+		}
+		return 64 // mini 模式
+	}, [form, styles.height])
 
-	let position = useMemo(() => {
+	const position = useMemo(() => {
 		if (form === 'full') {
 			const x = styles.offsetX !== null ? center.x + styles.offsetX : center.x - hiCardStyles.width / 2 - styles.width - CARD_SPACING
-			const y = styles.offsetY !== null ? center.y + styles.offsetY : center.y + hiCardStyles.height / 2 - styles.height
+			const y = styles.offsetY !== null ? center.y + styles.offsetY : center.y + hiCardStyles.height / 2 - totalHeight
 			return { x, y }
 		}
 
@@ -86,13 +99,13 @@ export default function NavCard() {
 			x: 24,
 			y: 16
 		}
-	}, [form, center, styles, hiCardStyles])
+	}, [form, center, styles, hiCardStyles, totalHeight])
 
 	const size = useMemo(() => {
 		if (form === 'mini') return { width: 64, height: 64 }
-		else if (form === 'icons') return { width: 340, height: 64 }
-		else return { width: styles.width, height: styles.height }
-	}, [form, styles])
+		else if (form === 'icons') return { width: 340, height: totalHeight }
+		else return { width: styles.width, height: totalHeight }
+	}, [form, styles, totalHeight])
 
 	useEffect(() => {
 		if (form === 'icons' && activeIndex !== undefined && hoveredIndex !== activeIndex) {
@@ -107,14 +120,18 @@ export default function NavCard() {
 
 	if (show)
 		return (
-			<HomeDraggableLayer cardKey='navCard' x={position.x} y={position.y} width={styles.width} height={styles.height}>
+			<HomeDraggableLayer cardKey='navCard' x={position.x} y={position.y} width={size.width} height={size.height}>
 				<Card
 					order={styles.order}
 					width={size.width}
 					height={size.height}
 					x={position.x}
 					y={position.y}
-					className={clsx(form != 'full' && 'overflow-hidden', form === 'mini' && 'p-3', form === 'icons' && 'flex items-center gap-6 p-3')}>
+					className={clsx(
+						form != 'full' && 'overflow-hidden',
+						form === 'mini' && 'p-3',
+						form === 'icons' && 'flex flex-col items-start gap-4 p-3'
+					)}>
 					{form === 'full' && siteContent.enableChristmas && (
 						<>
 							<img
@@ -138,20 +155,17 @@ export default function NavCard() {
 
 							<div className={cn('relative mt-2 space-y-2', form === 'icons' && 'mt-0 flex items-center gap-6 space-y-0')}>
 								<motion.div
-                                  className='absolute max-w-[230px] rounded-full border'
-                                   layoutId='nav-hover'
-                                   initial={false}
-                                   animate={
-                                    form === 'icons'
-                                     ? {
-                                 // 修复点：使用实际图标数量计算宽度
-                                  left: hoveredIndex * (itemHeight + 16) - extraSize,
-                                   top: -extraSize,
-                                   width: itemHeight + extraSize * 2,
-                                   height: itemHeight + extraSize * 2,
-                                  // 限制最大宽度不超过实际内容宽度
-                                    maxWidth: `${list.length * (itemHeight + 16)}px`
-                                    }
+  className='absolute max-w-[230px] rounded-full border'
+  layoutId='nav-hover'
+  initial={false}
+  animate={
+    form === 'icons'
+      ? {
+          left: hoveredIndex * (itemHeight + 24) - extraSize,
+          top: -extraSize,
+          width: itemHeight + extraSize * 2,
+          height: itemHeight + extraSize * 2
+        }
 											: { top: hoveredIndex * (itemHeight + 8), left: 0, width: '100%', height: itemHeight }
 									}
 									transition={{
@@ -177,6 +191,15 @@ export default function NavCard() {
 							</div>
 						</>
 					)}
+					
+					{/* 新增：备案框 - 在所有模式下显示 */}
+					<div className={cn(
+						"mt-4 w-full",
+						form === 'full' && "px-4",
+						form === 'icons' && "px-2"
+					)}>
+						<BeianCard />
+					</div>
 				</Card>
 			</HomeDraggableLayer>
 		)
