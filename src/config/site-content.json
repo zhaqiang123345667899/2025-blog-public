@@ -89,6 +89,16 @@
 	"enableChristmas": true,
 	"beian": {
 		"text": "鄂ICP备2025165912号-1",
-		"link": "https://beian.miit.gov.cn/"
+		"link": "https://beian.miit.gov.cn/",
+		"icp": {
+			"text": "鄂ICP备2025165912号",
+			"link": "https://beian.miit.gov.cn/#/Integrated/index",
+			"icon": ""
+		},
+		"publicSecurity": {
+			"text": "鄂公网安备42118202000164号",
+			"link": "https://beian.mps.gov.cn/#/query/webSearch?code=42118202000164",
+			"icon": ""
+		}
 	}
 }
