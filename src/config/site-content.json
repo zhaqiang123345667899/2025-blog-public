@@ -98,7 +98,7 @@
 		"publicSecurity": {
 			"text": "鄂公网安备42118202000164号",
 			"link": "https://beian.mps.gov.cn/#/query/webSearch?code=42118202000164",
-			"icon": ""
+			"icon": "/public/beian.png"
 		}
 	}
 }

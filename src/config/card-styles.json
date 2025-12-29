@@ -37,8 +37,8 @@
 		"height": 79,
 		"offset": 120,
 		"order": 6,
-		"offsetX": -102,
-		"offsetY": 225,
+		"offsetX": -87,
+		"offsetY": 229,
 		"enabled": true
 	},
 	"socialButtons": {
@@ -54,15 +54,15 @@
 		"height": 156,
 		"order": 7,
 		"offsetX": -378,
-		"offsetY": 203,
+		"offsetY": 156,
 		"enabled": true
 	},
 	"articleCard": {
 		"width": 276,
 		"height": 130,
 		"order": 8,
-		"offsetX": -453,
-		"offsetY": 26,
+		"offsetX": -450,
+		"offsetY": -4,
 		"enabled": true
 	},
 	"writeButtons": {
@@ -98,11 +98,11 @@
 		"enabled": false
 	},
 	"beianCard": {
-		"width": 377,
-		"height": 53,
+		"width": 547,
+		"height": 51,
 		"order": 11,
-		"offsetX": -141,
-		"offsetY": 341,
+		"offsetX": -257,
+		"offsetY": 352,
 		"enabled": true
 	}
 }
