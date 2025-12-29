@@ -138,17 +138,20 @@ export default function NavCard() {
 
 							<div className={cn('relative mt-2 space-y-2', form === 'icons' && 'mt-0 flex items-center gap-6 space-y-0')}>
 								<motion.div
-									className='absolute max-w-[230px] rounded-full border'
-									layoutId='nav-hover'
-									initial={false}
-									animate={
-										form === 'icons'
-											? {
-													left: hoveredIndex * (itemHeight + 24) - extraSize,
-													top: -extraSize,
-													width: itemHeight + extraSize * 2,
-													height: itemHeight + extraSize * 2
-												}
+                                  className='absolute max-w-[230px] rounded-full border'
+                                   layoutId='nav-hover'
+                                   initial={false}
+                                   animate={
+                                    form === 'icons'
+                                     ? {
+                                 // 修复点：使用实际图标数量计算宽度
+                                  left: hoveredIndex * (itemHeight + 16) - extraSize,
+                                   top: -extraSize,
+                                   width: itemHeight + extraSize * 2,
+                                   height: itemHeight + extraSize * 2,
+                                  // 限制最大宽度不超过实际内容宽度
+                                    maxWidth: `${list.length * (itemHeight + 16)}px`
+                                    }
 											: { top: hoveredIndex * (itemHeight + 8), left: 0, width: '100%', height: itemHeight }
 									}
 									transition={{
